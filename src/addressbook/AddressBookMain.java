@@ -3,20 +3,49 @@ package addressbook;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Address Book Program
+ * @author Veer.Singa
+ *
+ */
 
 public class AddressBookMain {			
 	static ArrayList<ContactPerson> personsList = new ArrayList<>();
 	static Scanner sc = new Scanner(System.in);
-
+	
+	//main function
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Address Book Program");
 		System.out.println("*******************************");
-		AddressBookMain book = new AddressBookMain();
-		book.addContact();
-		book.editContact();
+		addContact();
+		//editContact();
+		deleteContact();
 	}
-	public void addContact(){
+	
+	//Option Checking
+//	public static void CheckOption() {
+//		AddressBookMain book = new AddressBookMain();
+//		System.out.println("select options");
+//		System.out.println("\n1.AddContact \n2. Edit Contact\n3.Delete Contact");
+//		int check = sc.nextInt();
+//		switch(check){
+//		case 1:
+//			addContact();
+//			CheckOption();
+//			break;
+//		case 2:
+//			book.editContact();
+//			CheckOption();
+//			break;
+//		case 3 :
+//			book.deleteContact();
+//			CheckOption();
+//			break;
+//		}
+//	}
+	// Contact Adding
+	public static void addContact(){
 
 		System.out.println("Plase Enter No of Persons You Want To Add in your Address Book");
 		int numOfPersons = sc.nextInt();
@@ -49,8 +78,8 @@ public class AddressBookMain {
 			System.out.print(personsList);
 			
 	}
-	
-	public void editContact() {
+	//editing the contact
+	public static void editContact() {
 		System.out.println("Please Enter the Name You Want to Search For");
 		String name = sc.next();
 		for(int i = 0; i<personsList.size();i++) {
@@ -96,6 +125,20 @@ public class AddressBookMain {
 			System.out.println(personsList);
 		
 		}
+	}
+	
+	//Delete Contact
+	public static void deleteContact() {
+		System.out.println("Delete Contact");
+		System.out.println("confirm the name to delete contact");
+		String confirmName = sc.next();
+		for (int i = 0; i < personsList.size(); i++) {
+			if (personsList.get(i).getFirstName().equals(confirmName))
+				;
+			ContactPerson person = personsList.get(i);
+			personsList.remove(person);
+		}
+		System.out.println(personsList);
 	}
 		
 }
