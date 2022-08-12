@@ -8,50 +8,57 @@ import java.util.Scanner;
  * @author Veer.Singa
  *
  */
-
+//Main Class
 public class AddressBookMain {			
 	static ArrayList<ContactPerson> personsList = new ArrayList<>();
 	static Scanner sc = new Scanner(System.in);
+	public static int count = 0;
 	
 	//main function
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Address Book Program");
 		System.out.println("*******************************");
-		addContact();
-		//editContact();
-		deleteContact();
+		CheckOption();
+		
 	}
 	
 	//Option Checking
-//	public static void CheckOption() {
-//		AddressBookMain book = new AddressBookMain();
-//		System.out.println("select options");
-//		System.out.println("\n1.AddContact \n2. Edit Contact\n3.Delete Contact");
-//		int check = sc.nextInt();
-//		switch(check){
-//		case 1:
-//			addContact();
-//			CheckOption();
-//			break;
-//		case 2:
-//			book.editContact();
-//			CheckOption();
-//			break;
-//		case 3 :
-//			book.deleteContact();
-//			CheckOption();
-//			break;
-//		}
-//	}
+	public static void CheckOption() {
+		System.out.println("select options");
+		System.out.println("\n1.AddContact \n2.Edit Contact\n3.Delete Contact\n4.Number of Saved Contacts");
+		int check = sc.nextInt();
+		switch(check){
+		case 1:
+			addContact();
+			CheckOption();
+			break;
+		case 2:
+			editContact();
+			CheckOption();
+			break;
+		case 3 :
+			deleteContact();
+			CheckOption();
+			break;
+		default :
+			numOfContacts();
+		}
+	}
+	
+	//Number of Contacts Present
+	public static void numOfContacts() {
+		System.out.println("The Contacts Saved in Book : "+count);
+	}
+	
 	// Contact Adding
 	public static void addContact(){
-
+		
 		System.out.println("Plase Enter No of Persons You Want To Add in your Address Book");
 		int numOfPersons = sc.nextInt();
 		for (int i=0;i<numOfPersons;i++) {
 			ContactPerson person1 = new ContactPerson();
-				
+			count++;
 			System.out.println("Enter a first name:");
 			person1.setFirstName(sc.next());
 
@@ -78,6 +85,7 @@ public class AddressBookMain {
 			System.out.print(personsList);
 			
 	}
+	
 	//editing the contact
 	public static void editContact() {
 		System.out.println("Please Enter the Name You Want to Search For");
@@ -129,6 +137,7 @@ public class AddressBookMain {
 	
 	//Delete Contact
 	public static void deleteContact() {
+		count--;
 		System.out.println("Delete Contact");
 		System.out.println("confirm the name to delete contact");
 		String confirmName = sc.next();

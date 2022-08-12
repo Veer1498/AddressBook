@@ -73,7 +73,7 @@ public class ContactPerson {
 		return "\n PERSON DETAILS \n firstName = " + firstName + " \n lastName = " + lastName 
 				+ "\n address = " + address + "\n city = "
 				+ city + "\n state = " + state + "\n zipNo = " + zipNo 
-				+ "\n phoneNo = " + phoneNo+"\n-Successfully added "+firstName+" into new contacts\n";
+				+ "\n phoneNo = " + phoneNo+"\n-Successfully done Operation of "+firstName+" in AddressBook\n";
 	}
 
 	
