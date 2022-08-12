@@ -1,7 +1,5 @@
 package addressbook;
 
-import java.util.Scanner;
-
 public class ContactPerson {
 	private String firstName;
 	private String lastName;

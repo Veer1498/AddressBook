@@ -14,7 +14,7 @@ public class AddressBookMain {
 		System.out.println("*******************************");
 		AddressBookMain book = new AddressBookMain();
 		book.addContact();
-		
+		book.editContact();
 	}
 	public void addContact(){
 
@@ -48,6 +48,54 @@ public class AddressBookMain {
 		}
 			System.out.print(personsList);
 			
+	}
+	
+	public void editContact() {
+		System.out.println("Please Enter the Name You Want to Search For");
+		String name = sc.next();
+		for(int i = 0; i<personsList.size();i++) {
+		if(personsList.get(i).getFirstName().equals(name)) {
+			System.out.println("select options");
+			System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.City\n5.State\n6.Zip\n7.Phone Number");		}
+			int option = sc.nextInt();
+			switch(option){
+			case 1:
+				System.out.println("Rename FirstName");
+				String editFirstName = sc.next();
+				personsList.get(i).setFirstName(editFirstName);
+				System.out.println(editFirstName);
+				break;
+			case 2:
+				System.out.print("Enter a Last name:");
+				personsList.get(i).setLastName(sc.next());
+				break;
+			case 3:
+				System.out.print("Enter a Address:");
+				personsList.get(i).setAddress(sc.next());
+				break;
+			case 4:
+				System.out.print("Enter a city:");
+				personsList.get(i).setCity(sc.nextLine());
+				break;
+			case 5:
+				System.out.print("Enter a state:");
+				personsList.get(i).setState(sc.nextLine());
+				break;
+			case 6:
+				System.out.print("Enter a zip code:");
+				personsList.get(i).setZipNo(sc.nextInt());
+				break;
+			case 7:
+				System.out.print("Enter a phone number:");
+				personsList.get(i).setPhoneNo(sc.nextLong());
+				break;
+			default:
+				System.out.println("enter valid contact");
+			}
+			System.out.println("Details are Edited");
+			System.out.println(personsList);
+		
+		}
 	}
 		
 }
