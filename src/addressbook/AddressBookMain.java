@@ -8,6 +8,7 @@ import java.util.Scanner;
  * @author Veer.Singa
  *
  */
+
 //Main Class
 public class AddressBookMain {			
 	static ArrayList<ContactPerson> personsList = new ArrayList<>();
@@ -19,30 +20,30 @@ public class AddressBookMain {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Address Book Program");
 		System.out.println("*******************************");
-		CheckOption();
-		
-	}
-	
-	//Option Checking
-	public static void CheckOption() {
-		System.out.println("select options");
-		System.out.println("\n1.AddContact \n2.Edit Contact\n3.Delete Contact\n4.Number of Saved Contacts");
-		int check = sc.nextInt();
-		switch(check){
-		case 1:
-			addContact();
-			CheckOption();
-			break;
-		case 2:
-			editContact();
-			CheckOption();
-			break;
-		case 3 :
-			deleteContact();
-			CheckOption();
-			break;
-		default :
-			numOfContacts();
+		while(true) {
+			System.out.println("select options");
+			System.out.println("\n1.AddContact \n2.Edit Contact\n3.Delete Contact\n4.Number of Saved Contact\n5.Display\n6.Exit");
+			int check = sc.nextInt();
+			switch(check){
+			case 1:
+				addContact();
+				break;
+			case 2:
+				editContact();
+				break;
+			case 3 :
+				deleteContact();
+				break;
+			case 4 :
+				numOfContacts();
+				break;
+			case 5 :
+				display();
+				break;
+			case 6 :
+				System.exit(0);
+				
+			}
 		}
 	}
 	
@@ -82,7 +83,6 @@ public class AddressBookMain {
 			System.out.println("===================================");
 			personsList.add(person1);
 		}
-			System.out.print(personsList);
 			
 	}
 	
@@ -91,49 +91,47 @@ public class AddressBookMain {
 		System.out.println("Please Enter the Name You Want to Search For");
 		String name = sc.next();
 		for(int i = 0; i<personsList.size();i++) {
-		if(personsList.get(i).getFirstName().equals(name)) {
-			System.out.println("select options");
-			System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.City\n5.State\n6.Zip\n7.Phone Number");		}
-			int option = sc.nextInt();
-			switch(option){
-			case 1:
-				System.out.println("Rename FirstName");
-				String editFirstName = sc.next();
-				personsList.get(i).setFirstName(editFirstName);
-				System.out.println(editFirstName);
-				break;
-			case 2:
-				System.out.print("Enter a Last name:");
-				personsList.get(i).setLastName(sc.next());
-				break;
-			case 3:
-				System.out.print("Enter a Address:");
-				personsList.get(i).setAddress(sc.next());
-				break;
-			case 4:
-				System.out.print("Enter a city:");
-				personsList.get(i).setCity(sc.nextLine());
-				break;
-			case 5:
-				System.out.print("Enter a state:");
-				personsList.get(i).setState(sc.nextLine());
-				break;
-			case 6:
-				System.out.print("Enter a zip code:");
-				personsList.get(i).setZipNo(sc.nextInt());
-				break;
-			case 7:
-				System.out.print("Enter a phone number:");
-				personsList.get(i).setPhoneNo(sc.nextLong());
-				break;
-			default:
-				System.out.println("enter valid contact");
+			if(personsList.get(i).getFirstName().equals(name)) {
+				System.out.println("select options");
+				System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.City\n5.State\n6.Zip\n7.Phone Number");		}
+				int option = sc.nextInt();
+				switch(option){
+				case 1:
+					System.out.println("Rename FirstName");
+					String editFirstName = sc.next();
+					personsList.get(i).setFirstName(editFirstName);
+					System.out.println(editFirstName);
+					break;
+				case 2:
+					System.out.print("Enter a Last name:");
+					personsList.get(i).setLastName(sc.next());
+					break;
+				case 3:
+					System.out.print("Enter a Address:");
+					personsList.get(i).setAddress(sc.next());
+					break;
+				case 4:
+					System.out.print("Enter a city:");
+					personsList.get(i).setCity(sc.nextLine());
+					break;
+				case 5:
+					System.out.print("Enter a state:");
+					personsList.get(i).setState(sc.nextLine());
+					break;
+				case 6:
+					System.out.print("Enter a zip code:");
+					personsList.get(i).setZipNo(sc.nextInt());
+					break;
+				case 7:
+					System.out.print("Enter a phone number:");
+					personsList.get(i).setPhoneNo(sc.nextLong());
+					break;
+				default:
+					System.out.println("enter valid contact");
+				}
+				System.out.println("\nDetails are Edited");
 			}
-			System.out.println("Details are Edited");
-			System.out.println(personsList);
-		
 		}
-	}
 	
 	//Delete Contact
 	public static void deleteContact() {
@@ -147,6 +145,11 @@ public class AddressBookMain {
 			ContactPerson person = personsList.get(i);
 			personsList.remove(person);
 		}
+		System.out.println(personsList);
+	}
+	
+	//To Display
+	public static void display() {
 		System.out.println(personsList);
 	}
 		
