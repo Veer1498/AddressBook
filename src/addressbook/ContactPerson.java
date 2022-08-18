@@ -9,18 +9,6 @@ public class ContactPerson {
 	private int zipNo;
 	private long phoneNo;
 	
-	public ContactPerson(String firstName, String lastName, String address, String city, String state, int zipNo,
-			long phoneNo) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.zipNo = zipNo;
-		this.phoneNo = phoneNo;
-	}
-	
 	public ContactPerson() {
 		// TODO Auto-generated constructor stub
 	}
