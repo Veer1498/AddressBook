@@ -1,5 +1,11 @@
 package addressbook;
+/**
+ * AddressBook Program
+ * @author Veer.Singa
+ *
+ */
 
+//Contact Person Class to manage data of Contact into AddressBook
 public class ContactPerson {
 	private String firstName;
 	private String lastName;
@@ -10,7 +16,7 @@ public class ContactPerson {
 	private long phoneNo;
 	
 	public ContactPerson() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getFirstName() {
@@ -58,10 +64,10 @@ public class ContactPerson {
 	
 	@Override
 	public String toString() {
-		return "\n PERSON DETAILS \n firstName = " + firstName + " \n lastName = " + lastName 
-				+ "\n address = " + address + "\n city = "
-				+ city + "\n state = " + state + "\n zipNo = " + zipNo 
-				+ "\n phoneNo = " + phoneNo+"\n-Successfully done Operation of "+firstName+" in AddressBook\n";
+		return "\n PERSON DETAILS \n FirstName = " + firstName + " \n LastName = " + lastName 
+				+ "\n Address = " + address + "\n City = "
+				+ city + "\n State = " + state + "\n ZipNo = " + zipNo 
+				+ "\n PhoneNo = " + phoneNo+"\n-Successfully done Operation of "+firstName+" in AddressBook\n";
 	}
 
 	
