@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class AddressBook {			
 	 ArrayList<ContactPerson> personsList = new ArrayList<>();
 	 Scanner sc = new Scanner(System.in);
-	public  int count = 0;
+	 int count = 0;
 	
 	//Adding Contact into AddressBook
 	public void addContact(){
