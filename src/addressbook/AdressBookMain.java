@@ -16,8 +16,8 @@ public class AdressBookMain {
 		AddressBook addressbook = new AddressBook();
 		Scanner sc = new Scanner(System.in);
 		while(true) {
-			System.out.println("select options");
-			System.out.println("\n1.AddContact \n2.Edit Contact\n3.Delete Contact\n4.Number of Saved Contact\n5.Display\n6.Exit");
+			System.out.println("\nAddressBook Options ");
+			System.out.println("\n1.AddContact \n2.Edit Contact\n3.Delete Contact\n4.Number of Saved Contact\n5.Display\n6.Close AddressBook");
 			int check = sc.nextInt();
 			switch(check){
 			case 1:

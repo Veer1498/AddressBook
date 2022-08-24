@@ -64,11 +64,11 @@ public class ContactPerson {
 	
 	@Override
 	public String toString() {
-		return "\n PERSON DETAILS \n FirstName = " + firstName + " \n LastName = " + lastName 
+		return "\n CONTACT DETAILS of "+firstName+" \n FirstName = " + firstName + " \n LastName = " + lastName 
 				+ "\n Address = " + address + "\n City = "
 				+ city + "\n State = " + state + "\n ZipNo = " + zipNo 
-				+ "\n PhoneNo = " + phoneNo+"\n-Successfully done Operation of "+firstName+" in AddressBook\n";
-	}
+				+ "\n PhoneNo = " + phoneNo;
+				}
 
 	
 	
