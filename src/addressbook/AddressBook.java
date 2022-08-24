@@ -48,70 +48,97 @@ public class AddressBook {
 	
 	//Editing the contact of AddressBook
 	public void editContact() {
-		
-		System.out.println("Please Enter the Name You Want to Search For");
-		String name = sc.next();
-		for(int i = 0; i<personsList.size();i++) {
-			ContactPerson contact = personsList.get(i); //Shallow Copying Data for Thread Safe
-			if(contact.getFirstName().equals(name)) {
-				System.out.println("select options");
-				System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.City\n5.State\n6.Zip\n7.Phone Number");		}
-				int option = sc.nextInt();
-				switch(option){
-				case 1:
-					System.out.println("Enter FirstName");
-					contact.setFirstName(sc.next());
-					break;
-				case 2:
-					System.out.print("Enter a Last name:");
-					contact.setLastName(sc.next());
-					break;
-				case 3:
-					System.out.print("Enter a Address:");
-					contact.setAddress(sc.next());
-					break;
-				case 4:
-					System.out.print("Enter a city:");
-					contact.setCity(sc.nextLine());
-					break;
-				case 5:
-					System.out.print("Enter a state:");
-					contact.setState(sc.nextLine());
-					break;
-				case 6:
-					System.out.print("Enter a zip code:");
-					contact.setZipNo(sc.nextInt());
-					break;
-				case 7:
-					System.out.print("Enter a phone number:");
-					contact.setPhoneNo(sc.nextLong());
-					break;
-				default:
-					System.out.println("enter valid contact");
-				}
-				System.out.println("\nDetails are Edited");
-			}
+		if(count == 0) {
+			System.out.println("No contacts to Edit");
+			return;
 		}
+		System.out.println("Please Enter the First Name of Person You Want to Edit For");
+		String name = sc.next();
+		boolean isAvailable = false;
+		for(ContactPerson contact : personsList) {
+			if(contact.getFirstName().equals(name)) {
+				while(true) {
+					isAvailable = true;
+					System.out.println("Choose option to Edit");
+					System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.City\n5.State\n6.Zip\n7.Phone Number \n8.Exit");	
+					int option = sc.nextInt();
+					switch(option){
+					case 1:
+						System.out.println("Enter FirstName");
+						contact.setFirstName(sc.next());
+						break;
+					case 2:
+						System.out.print("Enter a Last name:");
+						contact.setLastName(sc.next());
+						break;
+					case 3:
+						System.out.print("Enter a Address:");
+						contact.setAddress(sc.next());
+						break;
+					case 4:
+						System.out.print("Enter a city:");
+						contact.setCity(sc.next());
+						break;
+					case 5:
+						System.out.print("Enter a state:");
+						contact.setState(sc.next());
+						break;
+					case 6:
+						System.out.print("Enter a zip code:");
+						contact.setZipNo(sc.nextInt());
+						break;
+					case 7:
+						System.out.print("Enter a phone number:");
+						contact.setPhoneNo(sc.nextLong());
+						break;
+					case 8: 
+						System.out.println("Back to AddressBook");
+						return;
+					default:
+						System.out.println("enter valid contact");
+						break;
+					}
+				}
+			}
+			System.out.println("Contact Edited Succesfully");
+		}
+			if(isAvailable == false) {
+				System.out.println("Contact Not Found");
+			}	
+	}
+		
 	
 	//Delete Contact of AddressBook
 	public void deleteContact() {
-		
+		if(count == 0) {
+			System.out.println("No contacts to Delete");
+			return;
+		}
 		System.out.println("Delete Contact");
 		System.out.println("confirm the name to delete contact");
 		String confirmName = sc.next();
-		for (int i = 0; i < personsList.size(); i++) {
-			ContactPerson contact = personsList.get(i); //Shallow Copying Data for Thread Safe
-			if (contact.getFirstName().equals(confirmName))
-			personsList.remove(contact);
+		boolean isAvailable = false;
+		for(ContactPerson contact : personsList) {  
+			if (contact.getFirstName().equals(confirmName)) {
+				isAvailable = true;
+				personsList.remove(contact);
+				System.out.println("Contact Deleted");
+				count--;
+				break;
+			}
 		}
-		count--;
+		if(isAvailable == false) {
+			System.out.println("Contact Not Found");
+		}
 	}
 	
 	//To Display All Contacts of AddressBook
 	public void display() {
-		for (int i = 0; i < personsList.size(); i++) {
-			ContactPerson contact = personsList.get(i);//Shallow Copying Data for Thread Safe
+		for(ContactPerson contact : personsList) {
 			System.out.println(contact);
+		}
+		if(personsList.size() == 0) {
+			System.out.println("No Contacts to Display\n");
 		}
 	}
 	
